@@ -13,22 +13,15 @@
     <version>0.0.1-SNAPSHOT</version>
     <name>online-shop-parent</name>
     <description>online-shop-parent</description>
-    <url/>
-    <licenses>
-        <license/>
-    </licenses>
-    <developers>
-        <developer/>
-    </developers>
-    <scm>
-        <connection/>
-        <developerConnection/>
-        <tag/>
-        <url/>
-    </scm>
+    <packaging>pom</packaging>
     <properties>
         <java.version>17</java.version>
     </properties>
+    <modules>
+        <module>online-shop-rest</module>
+        <module>online-shop-web</module>
+        <module>online-shop-common</module>
+    </modules>
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
