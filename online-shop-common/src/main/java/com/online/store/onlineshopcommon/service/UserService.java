@@ -8,13 +8,11 @@ import com.online.store.onlineshopcommon.entity.User;
 import java.util.Optional;
 
 public interface UserService {
+    void update(UpdateUserRequest request, User user);
 
+    UserDto updateUser(int id, UpdateUserRequest request);
 
-    public void update(UpdateUserRequest request, User user);
-
-    public UserDto updateUser(int id, UpdateUserRequest request);
-
-    public User registerUser(User user);
+    User registerUser(User user);
 
     User save(User user);
 

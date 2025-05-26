@@ -1,13 +1,12 @@
 package com.online.store.onlineshopcommon.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-@Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Getter
+@Setter
 public class UpdateUserRequest {
-    public String username;
-    public String email;
+    private String username;
+    private String email;
 }
