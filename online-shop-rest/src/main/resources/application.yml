@@ -1,6 +1,8 @@
 server:
   port: 8081
 spring:
+
+
   datasource:
     url: jdbc:mysql://localhost:3306/online_store
     username: root
@@ -11,7 +13,6 @@ spring:
         dialect: org.hibernate.dialect.MySQLDialect
 
   liquibase:
-    enabled: true
     change-log: classpath:/db/changelog.xml
 
 online-store:
