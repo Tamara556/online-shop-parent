@@ -8,4 +8,6 @@ spring:
     url: jdbc:mysql://localhost:3306/online_store
     username: root
     password: root
-
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html

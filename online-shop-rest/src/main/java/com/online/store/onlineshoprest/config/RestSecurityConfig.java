@@ -33,7 +33,6 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @RequiredArgsConstructor
 @ComponentScan(basePackages = {"com.online.store.onlineshoprest", "com.online.store.onlineshopcommon" } )
 public class RestSecurityConfig {
-    //es pahin chem gtnum u jamanak el chunem, minchev irikun ete gtac chexar irikuny kmianam knayenq, ok?okayy<3
 
     private final UserDetailsService userDetailsService;
     private final JwtAuthenticationEntryPoint authenticationEntryPoint;
