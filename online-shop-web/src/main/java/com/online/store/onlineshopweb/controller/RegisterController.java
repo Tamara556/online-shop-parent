@@ -1,21 +1,22 @@
 package com.online.store.onlineshopweb.controller;
 
-import com.online.store.onlineshopcommon.dto.RegisterUserRequest;
 import com.online.store.onlineshopcommon.entity.User;
-import com.online.store.onlineshopcommon.mapper.UserMapper;
 import com.online.store.onlineshopcommon.service.UserService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import java.util.Optional;
 
 @Controller
 @RequiredArgsConstructor
 public class RegisterController {
 
     private final UserService userService;
-    private final UserMapper userMapper;
+    private final PasswordEncoder passwordEncoder;
 
     @GetMapping("/register")
     public String registerPage(){
@@ -23,10 +24,13 @@ public class RegisterController {
     }
 
     @PostMapping("/register")
-    public String registerSubmit(@ModelAttribute RegisterUserRequest request){
-        User user = userMapper.toEntity(request);
-        userService.registerUser(user);
-        return "redirect:/login";
+    public String addUser(@ModelAttribute User user) {
+        Optional<User> byEmail = userService.findByEmail(user.getEmail());
+        if (byEmail.isEmpty()) {
+            user.setPassword(passwordEncoder.encode(user.getPassword()));
+            userService.save(user);
+        }
+        return "redirect:/";
     }
 
 }
