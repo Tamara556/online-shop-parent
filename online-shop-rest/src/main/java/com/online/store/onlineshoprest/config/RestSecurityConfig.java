@@ -1,19 +1,12 @@
 package com.online.store.onlineshoprest.config;
 
 import com.online.store.onlineshopcommon.config.PasswordEncoderBean;
-import com.online.store.onlineshopcommon.entity.User;
-import com.online.store.onlineshopcommon.repository.UserRepository;
 import com.online.store.onlineshoprest.filter.JWTAuthenticationTokenFilter;
 import com.online.store.onlineshoprest.security.JwtAuthenticationEntryPoint;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.data.domain.Example;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
-import org.springframework.data.repository.query.FluentQuery;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.AuthenticationProvider;
