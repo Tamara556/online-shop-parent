@@ -53,6 +53,13 @@ public class UserServiceImpl implements UserService {
         return userRepository.save(user);
     }
 
+    @Override
+    public User login(User request) {
+        return userRepository.findByEmail(request.getEmail())
+                .filter(user -> passwordEncoder.matches(request.getPassword(), user.getPassword()))
+                .orElseThrow(() -> new RuntimeException("Invalid email or password"));
+    }
+
 
     @Override
     public User save(User user) {
