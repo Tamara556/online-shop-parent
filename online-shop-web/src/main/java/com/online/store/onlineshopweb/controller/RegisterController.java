@@ -30,7 +30,7 @@ public class RegisterController {
             user.setPassword(passwordEncoder.encode(user.getPassword()));
             userService.save(user);
         }
-        return "redirect:/";
+        return "redirect:/login";
     }
 
 }
