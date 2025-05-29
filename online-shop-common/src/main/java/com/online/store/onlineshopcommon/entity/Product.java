@@ -26,4 +26,6 @@ public class Product {
     private String description;
 
     private int qty;
+
+    private String image;
 }
