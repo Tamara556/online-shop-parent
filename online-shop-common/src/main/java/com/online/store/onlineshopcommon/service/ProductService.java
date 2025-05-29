@@ -6,6 +6,8 @@ import com.online.store.onlineshopcommon.entity.Product;
 import com.online.store.onlineshopcommon.repository.ProductRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ProductService {
     private final ProductRepository productRepository;
@@ -27,5 +29,9 @@ public class ProductService {
         if (request.getQty() != null){
             product.setQty(request.getQty());
         }
+    }
+
+    public List<Product> getAllProducts() {
+        return productRepository.findAll();
     }
 }
