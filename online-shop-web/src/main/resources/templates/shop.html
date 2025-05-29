@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop - PAYLOON</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="./shop.css">
+</head>
+<body>
+<header class="navbar">
+  <div class="container">
+    <a href="index.html" class="logo">PAYLOON</a>
+
+    <nav class="nav-links">
+      <a href="index.html">home</a>
+      <a href="shop.html">shop</a>
+      <a href="contact.html">contact us</a>
+      <a href="about.html">about us</a>
+      <a href="login.html">login</a>
+      <a href="register.html">register</a>
+    </nav>
+
+    <button class="mobile-menu-btn">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+      </svg>
+    </button>
+  </div>
+</header>
+
+<main>
+  <section class="shop-section">
+    <div class="container">
+      <h1>Our Collection</h1>
+      <p class="shop-description">
+        Explore our latest designs and find the perfect addition to your wardrobe. Each piece is crafted with attention to detail and designed for everyday comfort.
+      </p>
+
+      <div class="tabs">
+        <div class="tabs-list">
+          <button class="tab-button active" data-category="All">All</button>
+          <button class="tab-button" data-category="T-Shirts">T-Shirts</button>
+          <button class="tab-button" data-category="Polos">Polos</button>
+          <button class="tab-button" data-category="Hoodies">Hoodies</button>
+          <button class="tab-button" data-category="Accessories">Accessories</button>
+        </div>
+
+        <div class="tab-content active" data-category="All">
+          <div class="products-grid">
+            <!-- Product cards will be dynamically generated with JavaScript -->
+            <div class="product-card">
+              <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="White T-shirt with Logo">
+              </div>
+              <div class="product-info">
+                <h3>Classic Logo Tee</h3>
+                <p class="product-price">$29.99</p>
+                <button class="add-to-cart-btn">Add to Cart</button>
+              </div>
+            </div>
+
+            <div class="product-card">
+              <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Heart Design T-shirt">
+              </div>
+              <div class="product-info">
+                <h3>Heart Print Tee</h3>
+                <p class="product-price">$34.99</p>
+                <button class="add-to-cart-btn">Add to Cart</button>
+              </div>
+            </div>
+
+            <div class="product-card">
+              <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Black Hoodie">
+              </div>
+              <div class="product-info">
+                <h3>Essential Hoodie</h3>
+                <p class="product-price">$49.99</p>
+                <button class="add-to-cart-btn">Add to Cart</button>
+              </div>
+            </div>
+
+            <div class="product-card">
+              <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1618354691373-d851c5c3a990?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Polo Shirt">
+              </div>
+              <div class="product-info">
+                <h3>Evening Polo</h3>
+                <p class="product-price">$39.99</p>
+                <button class="add-to-cart-btn">Add to Cart</button>
+              </div>
+            </div>
+
+            <div class="product-card">
+              <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1503341504253-dff4815485f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Minimal Tote Bag">
+              </div>
+              <div class="product-info">
+                <h3>Canvas Tote</h3>
+                <p class="product-price">$24.99</p>
+                <button class="add-to-cart-btn">Add to Cart</button>
+              </div>
+            </div>
+
+            <div class="product-card">
+              <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Black T-shirt with Print">
+              </div>
+              <div class="product-info">
+                <h3>Splatter Print Tee</h3>
+                <p class="product-price">$32.99</p>
+                <button class="add-to-cart-btn">Add to Cart</button>
+              </div>
+            </div>
+
+            <div class="product-card">
+              <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="White Hoodie">
+              </div>
+              <div class="product-info">
+                <h3>Minimal Hoodie</h3>
+                <p class="product-price">$54.99</p>
+                <button class="add-to-cart-btn">Add to Cart</button>
+              </div>
+            </div>
+
+            <div class="product-card">
+              <div class="product-image">
+                <img src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Cap">
+              </div>
+              <div class="product-info">
+                <h3>Signature Cap</h3>
+                <p class="product-price">$21.99</p>
+                <button class="add-to-cart-btn">Add to Cart</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Additional tab content sections would be added for each category -->
+        <div class="tab-content" data-category="T-Shirts">
+          <div class="products-grid">
+            <!-- Filtered T-shirts would appear here -->
+          </div>
+        </div>
+
+        <div class="tab-content" data-category="Polos">
+          <div class="products-grid">
+            <!-- Filtered Polos would appear here -->
+          </div>
+        </div>
+
+        <div class="tab-content" data-category="Hoodies">
+          <div class="products-grid">
+            <!-- Filtered Hoodies would appear here -->
+          </div>
+        </div>
+
+        <div class="tab-content" data-category="Accessories">
+          <div class="products-grid">
+            <!-- Filtered Accessories would appear here -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-section">
+        <a href="index.html" class="footer-logo">PAYLOON</a>
+        <p>Clothing staples designed to prioritize comfort, paired with bolder patterns.</p>
+      </div>
+
+      <div class="footer-section">
+        <h4>Shop</h4>
+        <ul>
+          <li><a href="shop.html">All Products</a></li>
+          <li><a href="shop.html">New Arrivals</a></li>
+          <li><a href="shop.html">Featured</a></li>
+          <li><a href="shop.html">Sale</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h4>Information</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="#">Shipping & Returns</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="#">Instagram</a></li>
+          <li><a href="#">Twitter</a></li>
+          <li><a href="#">Facebook</a></li>
+          <li><a href="#">Pinterest</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="copyright">
+      <p>&copy; <span id="current-year"></span> PAYLOON. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
