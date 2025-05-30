@@ -6,6 +6,7 @@ import com.online.store.onlineshopcommon.entity.Role;
 import com.online.store.onlineshopcommon.entity.User;
 import com.online.store.onlineshopcommon.mapper.UserMapper;
 import com.online.store.onlineshopcommon.repository.UserRepository;
+import com.online.store.onlineshopcommon.service.MailService;
 import com.online.store.onlineshopcommon.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -18,6 +19,7 @@ import java.util.Optional;
 public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
+    private final MailService mailService;
     private final UserMapper userMapper;
     private final PasswordEncoder passwordEncoder;
 
@@ -63,6 +65,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User save(User user) {
+        mailService.sendMail(user.getEmail(), "Welcome", "You have successfully registered");
+
         return userRepository.save(user);
     }
 
