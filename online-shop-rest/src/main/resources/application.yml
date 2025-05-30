@@ -11,6 +11,15 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQLDialect
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: murazyan.tamara5566@gmail.com
+    password: hosj dsda nqwz liau
+    properties:
+      mail.smtp.auth: true
+      mail.smtp.starttls.enable: true
+
 
   liquibase:
     change-log: classpath:/db/changelog.xml
