@@ -1,6 +1,7 @@
 package com.online.store.onlineshopweb.controller;
 
 import com.online.store.onlineshopcommon.entity.User;
+import com.online.store.onlineshopcommon.service.MailService;
 import com.online.store.onlineshopcommon.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
