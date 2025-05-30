@@ -11,3 +11,11 @@ spring:
   thymeleaf:
     prefix: classpath:/templates/
     suffix: .html
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: murazyan.tamara5566@gmail.com
+    password: hosj dsda nqwz liau
+    properties:
+      mail.smtp.auth: true
+      mail.smtp.starttls.enable: true
