@@ -1,6 +1,7 @@
 package com.online.store.onlineshopweb.controller;
 
 import com.online.store.onlineshopcommon.entity.User;
+import com.online.store.onlineshopcommon.service.MailService;
 import com.online.store.onlineshopcommon.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.util.Map;
 import java.util.Optional;
 
 @Controller
