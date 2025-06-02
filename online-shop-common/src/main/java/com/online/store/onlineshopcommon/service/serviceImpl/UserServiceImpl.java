@@ -12,7 +12,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.Map;
 import java.util.Optional;
 
 @Service
@@ -53,6 +52,7 @@ public class UserServiceImpl implements UserService {
         user.setPassword(passwordEncoder.encode(request.getPassword()));
 
         user.setRole(Role.USER);
+        mailService.sendWelcomeMail(user);
         return userRepository.save(user);
     }
 
