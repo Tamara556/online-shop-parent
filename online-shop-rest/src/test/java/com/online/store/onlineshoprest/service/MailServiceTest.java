@@ -1,3 +1,5 @@
+package com.online.store.onlineshoprest.service;
+
 import com.online.store.onlineshopcommon.entity.User;
 import com.online.store.onlineshopcommon.service.MailService;
 import jakarta.mail.MessagingException;

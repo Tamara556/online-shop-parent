@@ -1,3 +1,4 @@
+package com.online.store.onlineshoprest.service;
 
 import com.online.store.onlineshopcommon.dto.UpdateUserRequest;
 import com.online.store.onlineshopcommon.dto.UserDto;
