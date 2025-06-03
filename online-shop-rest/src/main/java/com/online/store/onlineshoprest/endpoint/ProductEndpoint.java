@@ -8,7 +8,6 @@ import com.online.store.onlineshopcommon.mapper.ProductMapper;
 import com.online.store.onlineshopcommon.repository.ProductRepository;
 import com.online.store.onlineshopcommon.service.ProductService;
 import lombok.AllArgsConstructor;
-import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

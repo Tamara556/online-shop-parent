@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.AuthenticationProvider;
@@ -25,6 +26,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @Configuration
 @RequiredArgsConstructor
 @ComponentScan(basePackages = {"com.online.store.onlineshoprest", "com.online.store.onlineshopcommon" } )
+@Profile("!test")
 public class RestSecurityConfig {
 
     private final UserDetailsService userDetailsService;
@@ -50,6 +52,8 @@ public class RestSecurityConfig {
                         .requestMatchers(HttpMethod.POST, "/products").authenticated()
                         .requestMatchers(HttpMethod.PUT, "/products/**").authenticated()
                         .requestMatchers(HttpMethod.DELETE, "/products/**").authenticated()
+                        .requestMatchers(HttpMethod.DELETE, "/products/**").hasRole("ADMIN")
+
 
                         .anyRequest().authenticated()
                 )
