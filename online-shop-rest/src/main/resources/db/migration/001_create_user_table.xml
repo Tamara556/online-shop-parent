@@ -17,8 +17,7 @@
             <column name="password" type="varchar(255)">
                 <constraints nullable="false"/>
             </column>
-            <column name="role" type="ENUM('ADMIN','USER')">
-<!--                <constraints nullable="false"/>-->
+            <column name="role" type="varchar(255)" defaultValue="USER">
             </column>
         </createTable>
     </changeSet>
