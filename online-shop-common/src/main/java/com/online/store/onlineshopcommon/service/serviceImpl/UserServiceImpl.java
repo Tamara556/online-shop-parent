@@ -2,7 +2,6 @@ package com.online.store.onlineshopcommon.service.serviceImpl;
 
 import com.online.store.onlineshopcommon.dto.UpdateUserRequest;
 import com.online.store.onlineshopcommon.dto.UserDto;
-import com.online.store.onlineshopcommon.entity.Role;
 import com.online.store.onlineshopcommon.entity.User;
 import com.online.store.onlineshopcommon.mapper.UserMapper;
 import com.online.store.onlineshopcommon.repository.UserRepository;
@@ -51,7 +50,6 @@ public class UserServiceImpl implements UserService {
 
         user.setPassword(passwordEncoder.encode(request.getPassword()));
 
-        user.setRole(Role.USER);
         mailService.sendWelcomeMail(user);
         return userRepository.save(user);
     }

@@ -2,7 +2,6 @@ package com.online.store.onlineshoprest.service;
 
 import com.online.store.onlineshopcommon.dto.UpdateUserRequest;
 import com.online.store.onlineshopcommon.dto.UserDto;
-import com.online.store.onlineshopcommon.entity.Role;
 import com.online.store.onlineshopcommon.entity.User;
 import com.online.store.onlineshopcommon.mapper.UserMapper;
 import com.online.store.onlineshopcommon.repository.UserRepository;
@@ -82,7 +81,6 @@ class UserServiceImplTest {
         savedUser.setUsername("john");
         savedUser.setEmail("john@example.com");
         savedUser.setPassword("encodedPassword");
-        savedUser.setRole(Role.USER);
 
         when(passwordEncoder.encode("password")).thenReturn("encodedPassword");
         when(userRepository.save(any(User.class))).thenReturn(savedUser);
@@ -92,7 +90,6 @@ class UserServiceImplTest {
         assertEquals("john", result.getUsername());
         assertEquals("john@example.com", result.getEmail());
         assertEquals("encodedPassword", result.getPassword());
-        assertEquals(Role.USER, result.getRole());
     }
 
     @Test
