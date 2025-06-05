@@ -8,6 +8,7 @@ import com.online.store.onlineshopcommon.mapper.ProductMapper;
 import com.online.store.onlineshopcommon.repository.ProductRepository;
 import com.online.store.onlineshopcommon.service.ProductService;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -18,6 +19,7 @@ import java.util.Set;
 @RestController
 @RequestMapping("/products")
 @AllArgsConstructor
+@Slf4j
 public class ProductEndpoint {
 
     private final ProductRepository productRepository;
