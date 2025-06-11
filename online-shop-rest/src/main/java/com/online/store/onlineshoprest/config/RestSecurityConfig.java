@@ -29,7 +29,7 @@ import java.util.List;
 
 @Configuration
 @RequiredArgsConstructor
-@ComponentScan(basePackages = {"com.online.store.onlineshoprest", "com.online.store.onlineshopcommon" } )
+@ComponentScan(basePackages = {"com.online.store.onlineshoprest", "com.online.store.onlineshopcommon"})
 @Profile("!test")
 public class RestSecurityConfig {
 
@@ -50,29 +50,21 @@ public class RestSecurityConfig {
         source.registerCorsConfiguration("/**", configuration);
         return source;
     }
-
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return http
-                .cors()
-                .and()
+                .cors().and()
                 .csrf().disable()
                 .exceptionHandling(ex -> ex.authenticationEntryPoint(authenticationEntryPoint))
                 .sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(HttpMethod.GET, "/swagger-ui/**", "/v3/api-docs/**").permitAll()
                         .requestMatchers(HttpMethod.POST, "/users", "/users/login", "/users/register").permitAll()
-                        .requestMatchers(HttpMethod.GET, "/users").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/users", "/login").permitAll()
                         .requestMatchers(HttpMethod.PUT, "/users/**").permitAll()
                         .requestMatchers(HttpMethod.DELETE, "/users/**").permitAll()
-                        .requestMatchers(HttpMethod.GET,"/login").permitAll()
-
-                        .requestMatchers(HttpMethod.GET, "/products/**").authenticated()
-                        .requestMatchers(HttpMethod.POST, "/products").authenticated()
-                        .requestMatchers(HttpMethod.PUT, "/products/**").authenticated()
-                        .requestMatchers(HttpMethod.DELETE, "/products/**").authenticated()
-                        .requestMatchers(HttpMethod.DELETE, "/products/**").hasRole("ADMIN")
-
+                        .requestMatchers("/products/**").authenticated()
+                        .requestMatchers(HttpMethod.GET, "/home", "/shop", "/about", "/contact").authenticated()
 
                         .anyRequest().authenticated()
                 )
