@@ -14,6 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import java.util.Objects;
 import java.util.Set;
 
 @RestController
@@ -28,7 +29,7 @@ public class ProductEndpoint {
 
     @GetMapping
     public Iterable<ProductDto> getAllProducts(@RequestParam(required = false, defaultValue = "", name = "sort")String sortBy){
-        if (!Set.of("name").contains(sortBy)){
+        if (!Objects.equals("name", sortBy)){
             sortBy = "name";
         }
         return productRepository.findAll(Sort.by(sortBy))
