@@ -30,6 +30,7 @@ public class WebSecurityConfig {
         http.csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(requests -> requests
                         .requestMatchers("/css/**").permitAll()
+                        .requestMatchers("/static/**").permitAll()
                         .requestMatchers("/shop", "/contact", "/about", "/home").authenticated()
                         .anyRequest().permitAll()
                 )

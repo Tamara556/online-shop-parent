@@ -56,6 +56,7 @@ public class RestSecurityConfig {
                 .sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/auth/").permitAll()
+                        .requestMatchers("/static/**").permitAll()
                         .requestMatchers("/img/**").permitAll()
                         .requestMatchers(HttpMethod.GET, "/swagger-ui/**", "/v3/api-docs/**").permitAll()
                         .requestMatchers(HttpMethod.POST, "/users", "/users/login", "/users/register").permitAll()
