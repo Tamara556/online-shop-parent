@@ -27,7 +27,6 @@ import java.util.List;
 @Configuration
 @RequiredArgsConstructor
 @ComponentScan(basePackages = {"com.online.store.onlineshoprest", "com.online.store.onlineshopcommon"})
-@Profile("!test")
 public class RestSecurityConfig {
 
     private final UserDetailsService userDetailsService;
@@ -56,6 +55,8 @@ public class RestSecurityConfig {
                 .exceptionHandling(ex -> ex.authenticationEntryPoint(authenticationEntryPoint))
                 .sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
+                        .requestMatchers("/auth/").permitAll()
+                        .requestMatchers("/img/**").permitAll()
                         .requestMatchers(HttpMethod.GET, "/swagger-ui/**", "/v3/api-docs/**").permitAll()
                         .requestMatchers(HttpMethod.POST, "/users", "/users/login", "/users/register").permitAll()
                         .requestMatchers(HttpMethod.GET, "/users", "/login").permitAll()
@@ -63,9 +64,9 @@ public class RestSecurityConfig {
                         .requestMatchers(HttpMethod.DELETE, "/users/**").permitAll()
                         .requestMatchers("/products/**").authenticated()
                         .requestMatchers(HttpMethod.GET, "/home", "/shop", "/about", "/contact").authenticated()
-
                         .anyRequest().authenticated()
                 )
+
                 .addFilterBefore(jwtAuthenticationTokenFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();
     }

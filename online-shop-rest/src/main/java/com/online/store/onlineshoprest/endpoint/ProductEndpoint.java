@@ -16,6 +16,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import java.util.List;
 import java.util.Objects;
 
 @RestController
@@ -27,7 +28,6 @@ public class ProductEndpoint {
     private final ProductRepository productRepository;
     private final ProductMapper productMapper;
     private final ProductService productService;
-    // private final Path imageDirectory = Paths.get("/static/img");
 
     @GetMapping
     public Iterable<ProductDto> getAllProducts(@RequestParam(required = false, defaultValue = "", name = "sort") String sortBy) {
@@ -88,10 +88,10 @@ public class ProductEndpoint {
         return ResponseEntity.noContent().build();
     }
 
-    @GetMapping(value = "/images/{fileName}", produces = MediaType.IMAGE_PNG_VALUE)
+    @GetMapping(value = "/img/{fileName}", produces = MediaType.IMAGE_PNG_VALUE)
     @SecurityRequirement(name = "NoAuth")
     public byte[] getImage(@PathVariable String fileName) {
-        return productService.getImage(fileName);
+        return null;
     }
 
 }
