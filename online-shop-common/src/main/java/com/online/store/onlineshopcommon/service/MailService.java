@@ -37,7 +37,7 @@ public class MailService {
         MimeMessage mimeMessage = mailSender.createMimeMessage();
         try {
 
-             final MimeMessageHelper message = new MimeMessageHelper(mimeMessage, true, "UTF-8");
+            final MimeMessageHelper message = new MimeMessageHelper(mimeMessage, true, "UTF-8");
 
             message.setSubject("Welcome to Our Online Store!");
             message.setTo(user.getEmail());

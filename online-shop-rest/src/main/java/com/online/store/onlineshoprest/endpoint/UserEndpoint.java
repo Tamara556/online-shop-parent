@@ -70,7 +70,6 @@ public class UserEndpoint {
         return ResponseEntity.ok(userDto);
     }
 
-
     @PutMapping("/{id}")
     public ResponseEntity<UserDto> updateUser(
             @PathVariable(name = "id") int id,
@@ -113,7 +112,6 @@ public class UserEndpoint {
         userService.save(userMapper.toEntity(saveUserRequest));
         return ResponseEntity.ok().build();
     }
-
 
     @PostMapping("/login")
     public ResponseEntity<UserResponse> login(@RequestBody UserRequest request) {

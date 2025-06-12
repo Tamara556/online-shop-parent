@@ -1,15 +1,12 @@
 package com.online.store.onlineshoprest.config;
 
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-import static org.springframework.web.cors.CorsConfiguration.ALL;
-
 @Configuration
-public class CorsConfig implements WebMvcConfigurer{
+public class CorsConfig implements WebMvcConfigurer {
 
     @Bean
     public WebMvcConfigurer corsConfigurer() {

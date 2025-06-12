@@ -7,15 +7,16 @@ import com.online.store.onlineshopcommon.entity.Product;
 import com.online.store.onlineshopcommon.mapper.ProductMapper;
 import com.online.store.onlineshopcommon.repository.ProductRepository;
 import com.online.store.onlineshopcommon.service.ProductService;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Sort;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.util.Objects;
-import java.util.Set;
 
 @RestController
 @RequestMapping("/products")
@@ -26,10 +27,11 @@ public class ProductEndpoint {
     private final ProductRepository productRepository;
     private final ProductMapper productMapper;
     private final ProductService productService;
+    // private final Path imageDirectory = Paths.get("/static/img");
 
     @GetMapping
-    public Iterable<ProductDto> getAllProducts(@RequestParam(required = false, defaultValue = "", name = "sort")String sortBy){
-        if (!Objects.equals("name", sortBy)){
+    public Iterable<ProductDto> getAllProducts(@RequestParam(required = false, defaultValue = "", name = "sort") String sortBy) {
+        if (!Objects.equals("name", sortBy)) {
             sortBy = "name";
         }
         return productRepository.findAll(Sort.by(sortBy))
@@ -65,7 +67,7 @@ public class ProductEndpoint {
     public ResponseEntity<ProductDto> updateProduct(
             @PathVariable(name = "id") Long id,
             @RequestBody ProductDto request
-    ){
+    ) {
         var product = productRepository.findById(id).orElse(null);
         if (product == null) {
             return ResponseEntity.notFound().build();
@@ -77,14 +79,19 @@ public class ProductEndpoint {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteProduct(@PathVariable Long id){
+    public ResponseEntity<Void> deleteProduct(@PathVariable Long id) {
         var product = productRepository.findById(id).orElse(null);
-        if (product == null){
+        if (product == null) {
             return ResponseEntity.notFound().build();
         }
         productRepository.delete(product);
         return ResponseEntity.noContent().build();
     }
 
+    @GetMapping(value = "/images/{fileName}", produces = MediaType.IMAGE_PNG_VALUE)
+    @SecurityRequirement(name = "NoAuth")
+    public byte[] getImage(@PathVariable String fileName) {
+        return productService.getImage(fileName);
+    }
 
 }
