@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="005_insert_product" author="Tamara Murazyan">
+        <insert tableName="product">
+            <column name="name" value="Hoodie"/>
+            <column name="price" valueNumeric="2999"/>
+            <column name="description" value="Warm and comfortable hoodie."/>
+            <column name="qty" valueNumeric="30"/>
+            <column name="image" value="img/image1.png"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>
