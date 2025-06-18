@@ -70,11 +70,10 @@ public class UserEndpoint {
         return ResponseEntity.ok(userDto);
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<UserDto> updateUser(
-            @PathVariable(name = "id") int id,
-            @RequestBody UpdateUserRequest request) {
-        var user = userRepository.findById(id).orElse(null);
+    @PutMapping
+    public ResponseEntity<UserDto> updateUser(@RequestBody UpdateUserRequest request) {
+        // fixme: sax service-i mej bdi exni, mnacac methodnern el
+        var user = userRepository.findById(request.getId()).orElse(null);
         if (user == null) {
             return ResponseEntity.notFound().build();
         }

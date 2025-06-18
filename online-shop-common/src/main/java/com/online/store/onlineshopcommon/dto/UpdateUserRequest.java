@@ -7,6 +7,7 @@ import lombok.*;
 @Getter
 @Setter
 public class UpdateUserRequest {
+    private Integer id;
     private String username;
     private String email;
 }

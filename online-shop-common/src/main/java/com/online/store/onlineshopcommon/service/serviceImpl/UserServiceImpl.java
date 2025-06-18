@@ -22,6 +22,8 @@ public class UserServiceImpl implements UserService {
     private final UserMapper userMapper;
     private final PasswordEncoder passwordEncoder;
 
+
+    // todo: es amen inchy mapperov bdi exni, shat sxal e grac
     @Override
     public void update(UpdateUserRequest request, User user) {
         if (request.getUsername() != null) {
@@ -34,6 +36,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserDto updateUser(int id, UpdateUserRequest request) {
+        // todo: erkrord angam findByID kenes u save
         User user = userRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("User not found"));
         update(request, user);
