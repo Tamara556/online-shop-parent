@@ -26,7 +26,7 @@ spring:
 
 online-store:
   jwt:
-    secret: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWUsImlhdCI6MTUxNjIzOTAyMn0
+    secret: eyJhbGciOiJIUzUxMiJ9eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJpYXQiOjE3NTAzMTUwMTIsImV4cCI6MTg1MDMxNTAxMX0ttlcTdnwHRGEyK1yFigqf4XSlPaW9kjEJaqdq2HXkU2j70nehfVwgrZLx8grdWw9NIEhbTXIXJM3ryDBPw
     expiration: 99999999
 
 images:
